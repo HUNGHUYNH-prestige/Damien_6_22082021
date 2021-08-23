@@ -9,10 +9,12 @@ Here are the dependancies you need to install:
 
 On Windows, these installations require to use PowerShell in administrator mode.
 
-The, clone this repo and run `npm install`.
+First, clone this repo and run `npm install`.
 
 
 ## Usage ##
+
+In the FRONTEND, please do the following command :
 
 Run `npm start`. This should both run the local server and launch your browser.
 
@@ -21,3 +23,9 @@ If your browser fails to launch, or shows a 404 error, navigate your browser to 
 The app should reload automatically when you make a change to a file.
 
 Use `Ctrl+C` in the terminal to stop the local server.
+
+In the BACKEND, please do the following command :
+
+Run `npm run serve`. This should run nodemon in case you do not have the access rights.
+
+Or run `nodemon server` as usual if running script is authorized.
