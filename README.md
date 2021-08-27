@@ -26,6 +26,6 @@ Use `Ctrl+C` in the terminal to stop the local server.
 
 In the BACKEND, please do the following command :
 
-Run `npm run serve`. This should run nodemon in case you do not have the access rights.
+Run `npm run start` or `npm start`. This should run nodemon in case you do not have the access rights.
 
 Or run `nodemon server` as usual if running script is authorized.

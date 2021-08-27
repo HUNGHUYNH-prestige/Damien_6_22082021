@@ -1,10 +1,3 @@
-// - - - File description :
-// server.js is a file for a program
-// this program is waiting for http requests
-
-// test
-console.log('le fichier en cours est : server.js');
-
 // import http package from Node :
 const http = require('http');
 
@@ -70,4 +63,5 @@ server.on('listening', () => {
 });
 
 // server uses listen method :
+//server.listen(port, ()=> console.log(`Server is running on port : ${process.env.PORT}`));
 server.listen(port);

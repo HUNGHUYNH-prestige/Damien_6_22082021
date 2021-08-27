@@ -12,11 +12,12 @@ exports.createSauce = (req, res, next) => {
         usersLiked : [],
         usersDisliked : []
     });
-    sauce
-    .save()
+    sauce.save()
     .then(()=> res.status(201).json({message : 'New Sauce Added'}))
     .catch(error => res.status(400).json({error}));
 };
+
+
 
 
 
