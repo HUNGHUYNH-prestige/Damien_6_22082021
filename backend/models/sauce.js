@@ -16,3 +16,15 @@ const sauceSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Sauce', sauceSchema);
+
+/*
+
+/^[A-Za-z]+$/
+description :
+^ start with
+$ end with
+all from A to Z
+all from a to z
++ meaning : 1 or more repetition
+
+*/
