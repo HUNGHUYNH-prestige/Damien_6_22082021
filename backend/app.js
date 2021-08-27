@@ -36,7 +36,7 @@ mongoose.connect(`${process.env.DATABASEMONGO}`, {
 // app call the express method to create an express application :
 const app = express();
 
-// use helmet to protect http headers
+// use helmet to protect http headers -> protection and hide X-Powered-By : Express
 app.use(helmet());
 
 // - - - import morgan for monitoring the http request
@@ -67,14 +67,3 @@ app.use('/api/auth', userRoutes);
 
 // export the module
 module.exports = app;
-
-
-// must be deleted at the end - - -
-// connection to mongodb with mongoose.connect()
-/*
-mongoose.connect('mongodb+srv://hunghuynh:Bonbon123@cluster0.zlhem.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true })
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
-*/
