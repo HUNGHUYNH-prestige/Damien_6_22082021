@@ -16,6 +16,8 @@ passwordSchema
 console.log(schema.validate('validPASS123'));
 console.log(schema.validate('invalidPASS'));
 console.log(schema.validate('joke', {list:true}));
+
+// {list:true} returns a list of rules which failed instead of true/false
 */
 
 module.exports = passwordSchema;

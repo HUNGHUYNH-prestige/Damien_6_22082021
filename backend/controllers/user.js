@@ -1,9 +1,23 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt'); // crypt password
+const jwt = require('jsonwebtoken'); // create token
 const User = require('../models/user');
 const mongoose = require('mongoose');
+const CryptoJS = require('crypto-js'); // crypt email
+const { SHA1 } = require('crypto-js');
+
+const cryptoEmail = CryptoJS.HmacSHA1('pomme', 'key');
+const stringEmail = cryptoEmail.toString();
+console.log('regarde1 : ' + cryptoEmail);
+console.log('regarde2 : ' + stringEmail);
 
 exports.signup = (req, res, next) => {
+    
+    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, 'key');
+    //console.log(cryptedEmail);
+
+    const stringOfEmail = cryptedEmail.toString();
+    console.log(stringOfEmail);
+
     bcrypt
     .hash(req.body.password, 10)
     .then(hash => {
@@ -20,6 +34,13 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
+
+    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, 'key');
+    //console.log(cryptedEmail);
+
+    const stringOfEmail = cryptedEmail.toString();
+    console.log(stringOfEmail);
+    
     User.findOne({ email: req.body.email })
     .then(user => {
         if (!user) {
@@ -28,6 +49,7 @@ exports.login = (req, res, next) => {
         bcrypt
         .compare(req.body.password, user.password)
         .then(valid => {
+            
             if (!valid) {
                 return res.status(401).json({error: 'Password incorrect'});
             }
