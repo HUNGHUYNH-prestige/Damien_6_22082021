@@ -33,7 +33,7 @@ Or run `nodemon server` as usual if running script is authorized.
 INFORMATION ABOUT DOTENV : how to use it ?
 
 First, create a file with the name : .env in the backend file.
-Then, in .env add the following text : 
+Then, in the file .env add the following text : 
 
 port = 3000
 DATABASEMONGO = "mongodb+srv://<username>:<password>@cluster0.<your reference from mongo>.mongodb.net/test?retryWrites=true&w=majority"
