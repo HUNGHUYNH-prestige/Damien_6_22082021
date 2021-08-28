@@ -65,7 +65,7 @@ exports.likeSauce = (req, res, next) => {
                 _id : req.params.id
             }
         )
-        .then(()=> res.status(200).json({message : 'Update like or dislike'}))
+        .then(()=> res.status(200).json({message : 'Update rating for like or dislike'}))
         .catch(error => res.status(400).json({error}));
     })
     .catch(error => res.status(404).json({error}));

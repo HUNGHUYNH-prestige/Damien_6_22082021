@@ -5,11 +5,16 @@ function validateEmail(email) {
     const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const result = regexEmail.test(email);
     console.log(result);
-    return result;
+    
+    if (result == true) {
+        console.log('email ok');
+    } else {
+        console.log('email not ok');
+    }
 };
 // check the email input
-// if return = false -> email is ok
-// if return = true  -> email is not ok
+// if return = false -> email is not ok
+// if return = true  -> email is ok
 
 const userSchema = mongoose.Schema({
     email : {
@@ -31,6 +36,13 @@ const userSchema = mongoose.Schema({
 // lowercase : convert the string into lowercase string
 // validate and match : for the email input checking before sending
 // trim : delete white space before and after the string
+
+
+// email type for false
+// dododo=@dodo.dodo because =
+// pomme/pomme@gmail.de because /
+
+
 
 userSchema.plugin(uniqueValidator);
 

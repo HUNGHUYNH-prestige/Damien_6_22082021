@@ -29,3 +29,16 @@ In the BACKEND, please do the following command :
 Run `npm run start` or `npm start`. This should run nodemon in case you do not have the access rights.
 
 Or run `nodemon server` as usual if running script is authorized.
+
+INFORMATION ABOUT DOTENV : how to use it ?
+
+First, create a file with the name : .env in the backend file.
+Then, in .env add the following text : 
+
+port = 3000
+DATABASEMONGO = "mongodb+srv://<username>:<password>@cluster0.<your reference from mongo>.mongodb.net/test?retryWrites=true&w=majority"
+TOKEN = <something like : TOKEN_FOR_SECURITY>
+
+Finally, save the .env file for use.
+
+:)
