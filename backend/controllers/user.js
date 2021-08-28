@@ -12,7 +12,7 @@ console.log('regarde2 : ' + stringEmail);
 
 exports.signup = (req, res, next) => {
     
-    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, 'key');
+    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, process.env.CRYPTO);
     //console.log(cryptedEmail);
 
     const stringOfEmail = cryptedEmail.toString();
@@ -35,12 +35,12 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
 
-    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, 'key');
+    const cryptedEmail = CryptoJS.HmacSHA1(req.body.email, process.env.CRYPTO);
     //console.log(cryptedEmail);
 
     const stringOfEmail = cryptedEmail.toString();
     console.log(stringOfEmail);
-    
+
     User.findOne({ email: req.body.email })
     .then(user => {
         if (!user) {
