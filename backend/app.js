@@ -7,6 +7,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+// dotenv for environment protection
 const dotenv = require('dotenv');
 dotenv.config();
 console.log(dotenv.config());
@@ -15,7 +16,15 @@ console.log(dotenv.config());
 const helmet = require('helmet');
 // path : improve in path for access
 const path = require('path');
+// cache protection : this Express middleware sets some HTTP response headers to try to disable client-side caching
+const nocache = require("nocache");
+// - - - import morgan for monitoring the http request
+const morgan = require('morgan');
+// cookie-session : middleware for storing the session data on the client within a cookie
+const cookieSession = require('cookie-session');
 
+
+// file system : access the file in the system
 const fs = require('fs');
 
 // - - - ROUTES - - -
@@ -36,14 +45,6 @@ mongoose.connect(`${process.env.DATABASEMONGO}`, {
 // app call the express method to create an express application :
 const app = express();
 
-// use helmet to protect http headers -> protection and hide X-Powered-By : Express
-app.use(helmet());
-
-// - - - import morgan for monitoring the http request
-const morgan = require('morgan');
-app.use(morgan('tiny'));
-// tiny => the minimal output => :method :url :status :res[content-length] - :response-time ms
-
    
 // middleware for headers (CORS) for all requests
 app.use((req, res, next) => {
@@ -52,6 +53,33 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
+
+// cookie client side
+const uneHeure = 1 * 1000 * 60 * 60;
+console.log(uneHeure + ' ms = 1 heure');
+const expiryDate = new Date(Date.now() + uneHeure);
+
+app.use(cookieSession({
+    name : 'session',
+    secret : process.env.COOKIE,
+    cookie : {
+        secure : true,
+        httpOnly : true,
+        domain : 'http://localhost:3000',
+        expire : expiryDate
+    }
+}));
+
+// use helmet to protect http headers -> protection and hide X-Powered-By : Express
+app.use(helmet());
+
+// turning off caching with
+app.use(nocache());
+
+
+app.use(morgan('tiny'));
+// tiny => the minimal output => :method :url :status :res[content-length] - :response-time ms
+
 
 // body parser = expess.json()
 // use it before the post request

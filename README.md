@@ -36,8 +36,9 @@ First, create a file with the name : .env in the backend file.
 Then, in the file .env add the following text : 
 
 port = 3000
-DATABASEMONGO = "mongodb+srv://<username>:<password>@cluster0.<your reference from mongo>.mongodb.net/test?retryWrites=true&w=majority"
-TOKEN = <something like : TOKEN_FOR_SECURITY>
+DATABASEMONGO = "mongodb+srv://username:password@cluster0.your-reference-from-mongo.mongodb.net/test?retryWrites=true&w=majority"
+TOKEN = string for security
+COOKIE = string for security
 
 Finally, save the .env file for use.
 
