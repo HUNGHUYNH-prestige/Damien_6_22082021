@@ -3,12 +3,13 @@ const jwt = require('jsonwebtoken'); // create token
 const User = require('../models/user');
 const mongoose = require('mongoose');
 const CryptoJS = require('crypto-js'); // crypt email
-const { SHA1 } = require('crypto-js');
-
+//const { SHA1 } = require('crypto-js');
+/*
 const cryptoEmail = CryptoJS.HmacSHA1('pomme', 'key');
 const stringEmail = cryptoEmail.toString();
 console.log('regarde1 : ' + cryptoEmail);
 console.log('regarde2 : ' + stringEmail);
+*/
 
 exports.signup = (req, res, next) => {
     
