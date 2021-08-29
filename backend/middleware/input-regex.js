@@ -7,3 +7,10 @@ exports.inputValidator = [
         message : 'Please verify your input again, only letters and numbers'
     })
 ];
+
+// /^[a-zàâçéèêëîïôûùüÿñæœ0-9 \n,'.!?-]*$/i
+// a-z
+// A-Z
+// 0-9
+// all french 
+// no {} [] / % # @
