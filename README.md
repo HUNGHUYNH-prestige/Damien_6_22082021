@@ -38,6 +38,7 @@ Then, in the file .env add the following text :
 port = 3000
 DATABASEMONGO = "mongodb+srv://username:password@cluster0.your-reference-from-mongo.mongodb.net/test?retryWrites=true&w=majority"
 TOKEN = string for security
+</br>
 COOKIE = string for security
 
 Finally, save the .env file for use.
