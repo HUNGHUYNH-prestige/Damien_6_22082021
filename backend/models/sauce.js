@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const regexInput = /^[a-zA-Z0-9]*$/;
+const regexInput = /^[a-zA-Z0-9 ']*$/;
 
 const inputRegex = require('../middleware/input-regex');
 // exports.inputValidator
