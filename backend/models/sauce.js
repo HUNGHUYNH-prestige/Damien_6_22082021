@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 const regexInput = /^[a-zA-Z0-9]*$/;
 
+const inputRegex = require('../middleware/input-regex');
+// exports.inputValidator
+
 const sauceSchema = mongoose.Schema({
     userId :        {type:String, require:false},
 
-    name :          {type:String, require:true, validate:[regexInput, 'Input name not accepted'], match : [regexInput, 'Input not correct']},
-    manufacturer :  {type:String, require:true, validate:[regexInput, 'Input manufacturer not accepted'], match : [regexInput, 'Input not correct']},
-    description :   {type:String, require:true, validate:[regexInput, 'Input description not accepted'], match : [regexInput, 'Input not correct']},
-    mainPepper :    {type:String, require:true, validate:[regexInput, 'Input main pepper not accepted'], match : [regexInput, 'Input not correct']},
+    name :          {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
+    manufacturer :  {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
+    description :   {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
+    mainPepper :    {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
     imageUrl :      {type:String, require:false},
     heat :          {type:Number, require:true},
     likes :         {type:Number, require:false},
