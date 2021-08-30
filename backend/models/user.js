@@ -7,9 +7,9 @@ function validateEmail(email) {
     console.log(result);
     
     if (result == true) {
-        console.log('email ok');
+        console.log('email ok -> user models');
     } else {
-        console.log('email not ok');
+        console.log('email not ok -> user models');
     }
 };
 // check the email input
