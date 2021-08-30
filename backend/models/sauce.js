@@ -7,10 +7,30 @@ const inputRegex = require('../middleware/input-regex');
 const sauceSchema = mongoose.Schema({
     userId :        {type:String, require:false},
 
-    name :          {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
-    manufacturer :  {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
-    description :   {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
-    mainPepper :    {type:String, require:true, validate:inputRegex.inputValidator, match : [regexInput, 'Input not correct']},
+    name :          {
+      type:String,
+      require:true,
+      validate:inputRegex.inputValidator,
+      //match : [regexInput, 'Input not correct']
+    },
+    manufacturer :  {
+      type:String,
+      require:true,
+      validate:inputRegex.inputValidator,
+      //match : [regexInput, 'Input not correct']
+    },
+    description :   {
+      type:String,
+      require:true,
+      validate:inputRegex.inputValidator,
+      //match : [regexInput, 'Input not correct']
+    },
+    mainPepper :    {
+      type:String,
+      require:true,
+      validate:inputRegex.inputValidator,
+      //match : [regexInput, 'Input not correct']
+    },
     imageUrl :      {type:String, require:false},
     heat :          {type:Number, require:true},
     likes :         {type:Number, require:false},
