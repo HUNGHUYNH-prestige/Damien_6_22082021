@@ -1,5 +1,5 @@
 const passwordSchema = require('../models/password');
-const passwordValidator = require('../models/password');
+//const passwordValidator = require('../models/password');
 
 module.exports = (req, res, next) => {
     if (!passwordSchema.validate(req.body.password)) {
