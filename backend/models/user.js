@@ -10,7 +10,9 @@ function validateEmail(email) {
         console.log('email ok -> user models');
     } else {
         console.log('email not ok -> user models');
+        return false;
     }
+    
 };
 // check the email input
 // if return = false -> email is not ok
@@ -24,7 +26,7 @@ const userSchema = mongoose.Schema({
         trim:true,
         lowercase:true,
         validate: [validateEmail, 'Please fill a valid email address'],
-        //match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Not matched, please fill a valid email address']
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Not matched, please fill a valid email address']
     },
     password : {
         type:String,
