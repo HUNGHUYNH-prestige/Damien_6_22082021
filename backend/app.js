@@ -28,9 +28,7 @@ const cookieSession = require('cookie-session');
 const fs = require('fs');
 
 // - - - ROUTES - - -
-
-const sauceRoutes = require('./routes/sauce');
-const userRoutes = require('./routes/user');
+// voir plus bas
 
 // DeprecationWarning: collection.ensureIndex is deprecated
 mongoose.set('useCreateIndex', true);
@@ -88,6 +86,11 @@ app.use(express.urlencoded({extended:true}));
 
 // multer : file manager and path direction
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
+
+// -- Routes --
+const sauceRoutes = require('./routes/sauce');
+const userRoutes = require('./routes/user');
 
 // ROUTES for API REST
 app.use('/api/sauces', sauceRoutes);
